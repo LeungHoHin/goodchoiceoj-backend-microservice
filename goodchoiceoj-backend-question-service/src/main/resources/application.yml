@@ -1,7 +1,7 @@
 # 公共配置文件
 spring:
   application:
-    name: goodchoiceoj-backend-userservice
+    name: goodchoiceoj-backend-question-service
   #默认 dev 环境
   profiles:
     active: dev
@@ -26,20 +26,20 @@ spring:
     host: localhost
     port: 6379
     timeout: 5000
-#    lettuce:
-#      pool:
-#        max-active: 8
-#        max-idle: 8
-#        min-idle: 0
+  #    lettuce:
+  #      pool:
+  #        max-active: 8
+  #        max-idle: 8
+  #        min-idle: 0
   #    password: Lhx20021030!
   servlet:
     multipart:
       max-file-size: 10MB
 server:
   address: 0.0.0.0
-  port: 8102
+  port: 8103
   servlet:
-    context-path: /user
+    context-path: /question
     # cookie 30 天过期
     session:
       cookie:
@@ -57,8 +57,12 @@ mybatis-plus:
 ##代码沙箱配置
 codesandbox:
   type: remote
-#  #代码沙箱地址
+  #  #代码沙箱地址
   address: http://192.168.126.132:8091/executeCode
+
+
+knife4j:
+  enable: true
 
 
 

@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.lhx.judgeservice</groupId>
-    <artifactId>goodchiceoj-backend-judgeservice</artifactId>
+    <artifactId>goodchoiceoj-backend-judge-service</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

@@ -11,9 +11,9 @@
     <modules>
         <module>goodchoiceoj-backend-common</module>
         <module>goodchoiceoj-backend-gateway</module>
-        <module>goodchiceoj-backend-judgeservice</module>
-        <module>goodchoiceoj-backend-questionservice</module>
-        <module>goodchoiceoj-backend-userservice</module>
+        <module>goodchoiceoj-backend-judge-service</module>
+        <module>goodchoiceoj-backend-question-service</module>
+        <module>goodchoiceoj-backend-user-service</module>
         <module>goodchoiceoj-backend-service-client</module>
         <module>goodchoiceoj-backend-model</module>
     </modules>
