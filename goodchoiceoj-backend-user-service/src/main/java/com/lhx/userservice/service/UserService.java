@@ -2,10 +2,10 @@ package com.lhx.userservice.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.lhx.goodchoiceojmodel.dto.user.UserQueryRequest;
-import com.lhx.goodchoiceojmodel.entity.User;
-import com.lhx.goodchoiceojmodel.vo.LoginUserVO;
-import com.lhx.goodchoiceojmodel.vo.UserVO;
+import com.lhx.judgeservice.dto.user.UserQueryRequest;
+import com.lhx.judgeservice.entity.User;
+import com.lhx.judgeservice.vo.LoginUserVO;
+import com.lhx.judgeservice.vo.UserVO;
 
 
 import javax.servlet.http.HttpServletRequest;

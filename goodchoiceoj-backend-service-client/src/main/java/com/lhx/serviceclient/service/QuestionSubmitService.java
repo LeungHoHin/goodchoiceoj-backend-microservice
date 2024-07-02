@@ -3,11 +3,11 @@ package com.lhx.serviceclient.service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.lhx.goodchoiceojmodel.dto.questionsubmit.QuestionSubmitAddRequest;
-import com.lhx.goodchoiceojmodel.dto.questionsubmit.QuestionSubmitQueryRequest;
-import com.lhx.goodchoiceojmodel.entity.QuestionSubmit;
-import com.lhx.goodchoiceojmodel.entity.User;
-import com.lhx.goodchoiceojmodel.vo.QuestionSubmitVO;
+import com.lhx.judgeservice.dto.questionsubmit.QuestionSubmitAddRequest;
+import com.lhx.judgeservice.dto.questionsubmit.QuestionSubmitQueryRequest;
+import com.lhx.judgeservice.entity.QuestionSubmit;
+import com.lhx.judgeservice.entity.User;
+import com.lhx.judgeservice.vo.QuestionSubmitVO;
 
 
 /**

@@ -1,7 +1,7 @@
 package com.lhx.userservice.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.lhx.goodchoiceojmodel.entity.User;
+import com.lhx.judgeservice.entity.User;
 
 
 /**

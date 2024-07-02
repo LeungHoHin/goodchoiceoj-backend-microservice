@@ -1,7 +1,7 @@
 package com.lhx.serviceclient.service;
 
 
-import com.lhx.goodchoiceojmodel.entity.QuestionSubmit;
+import com.lhx.judgeservice.entity.QuestionSubmit;
 
 /**
  * 判题服务

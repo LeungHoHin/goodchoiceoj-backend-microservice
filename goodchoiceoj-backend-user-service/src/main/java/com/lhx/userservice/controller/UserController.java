@@ -10,10 +10,10 @@ import com.lhx.common.common.ResultUtils;
 import com.lhx.common.constant.UserConstant;
 import com.lhx.common.exception.BusinessException;
 import com.lhx.common.exception.ThrowUtils;
-import com.lhx.goodchoiceojmodel.dto.user.*;
-import com.lhx.goodchoiceojmodel.entity.User;
-import com.lhx.goodchoiceojmodel.vo.LoginUserVO;
-import com.lhx.goodchoiceojmodel.vo.UserVO;
+import com.lhx.judgeservice.dto.user.*;
+import com.lhx.judgeservice.entity.User;
+import com.lhx.judgeservice.vo.LoginUserVO;
+import com.lhx.judgeservice.vo.UserVO;
 import com.lhx.userservice.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -25,7 +25,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-import static com.sun.javafx.font.FontResource.SALT;
+import static com.lhx.userservice.service.impl.UserServiceImpl.SALT;
 
 
 /**

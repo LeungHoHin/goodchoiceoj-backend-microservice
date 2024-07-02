@@ -3,9 +3,9 @@ package com.lhx.questionservice.service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.lhx.goodchoiceojmodel.dto.question.QuestionQueryRequest;
-import com.lhx.goodchoiceojmodel.entity.Question;
-import com.lhx.goodchoiceojmodel.vo.QuestionVO;
+import com.lhx.judgeservice.dto.question.QuestionQueryRequest;
+import com.lhx.judgeservice.entity.Question;
+import com.lhx.judgeservice.vo.QuestionVO;
 
 
 import javax.servlet.http.HttpServletRequest;
