@@ -15,6 +15,7 @@
         <module>goodchoiceoj-backend-questionservice</module>
         <module>goodchoiceoj-backend-userservice</module>
         <module>goodchoiceoj-backend-service-client</module>
+        <module>goodchoiceoj-backend-model</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
