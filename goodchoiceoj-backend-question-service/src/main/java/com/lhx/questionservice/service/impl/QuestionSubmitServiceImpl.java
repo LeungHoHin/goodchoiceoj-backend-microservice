@@ -17,6 +17,7 @@ import com.lhx.model.enums.QuestionSubmitLanguageEnum;
 import com.lhx.model.enums.QuestionSubmitStatusEnum;
 import com.lhx.model.vo.QuestionSubmitVO;
 import com.lhx.questionservice.mapper.QuestionSubmitMapper;
+import com.lhx.questionservice.rabbitmq.MyMessageProducer;
 import com.lhx.questionservice.service.QuestionService;
 import com.lhx.questionservice.service.QuestionSubmitService;
 import com.lhx.serviceclient.service.JudgeFeignClient;
@@ -50,8 +51,8 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
     @Lazy
     private JudgeFeignClient judgeFeignClient;
 
-//    @Resource
-//    private MyMessageProducer myMessageProducer;
+    @Resource
+    private MyMessageProducer myMessageProducer;
     /**
      * 提交题目
      *
@@ -90,11 +91,11 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
         }
         Long questionSubmitId = questionSubmit.getId();
         // 发送消息
-//        myMessageProducer.sendMessage("code_exchange", "my_routingKey", String.valueOf(questionSubmitId));
+        myMessageProducer.sendMessage("code_exchange", "my_routingKey", String.valueOf(questionSubmitId));
         // 执行判题服务
-        CompletableFuture.runAsync(() -> {
-            judgeFeignClient.doJudge(questionSubmitId);
-        });
+//        CompletableFuture.runAsync(() -> {
+//            judgeFeignClient.doJudge(questionSubmitId);
+//        });
         return questionSubmitId;
     }
 
