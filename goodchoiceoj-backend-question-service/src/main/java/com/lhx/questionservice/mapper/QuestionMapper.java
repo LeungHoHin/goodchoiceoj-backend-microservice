@@ -1,7 +1,7 @@
 package com.lhx.questionservice.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.lhx.judgeservice.entity.Question;
+import com.lhx.model.entity.Question;
 
 
 /**

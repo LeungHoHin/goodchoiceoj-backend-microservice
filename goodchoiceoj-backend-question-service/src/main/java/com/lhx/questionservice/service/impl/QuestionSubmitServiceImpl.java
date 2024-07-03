@@ -8,19 +8,19 @@ import com.lhx.common.common.ErrorCode;
 import com.lhx.common.constant.CommonConstant;
 import com.lhx.common.exception.BusinessException;
 import com.lhx.common.utils.SqlUtils;
-import com.lhx.judgeservice.dto.questionsubmit.QuestionSubmitAddRequest;
-import com.lhx.judgeservice.dto.questionsubmit.QuestionSubmitQueryRequest;
-import com.lhx.judgeservice.entity.Question;
-import com.lhx.judgeservice.entity.QuestionSubmit;
-import com.lhx.judgeservice.entity.User;
-import com.lhx.judgeservice.enums.QuestionSubmitLanguageEnum;
-import com.lhx.judgeservice.enums.QuestionSubmitStatusEnum;
-import com.lhx.judgeservice.vo.QuestionSubmitVO;
+import com.lhx.model.dto.questionsubmit.QuestionSubmitAddRequest;
+import com.lhx.model.dto.questionsubmit.QuestionSubmitQueryRequest;
+import com.lhx.model.entity.Question;
+import com.lhx.model.entity.QuestionSubmit;
+import com.lhx.model.entity.User;
+import com.lhx.model.enums.QuestionSubmitLanguageEnum;
+import com.lhx.model.enums.QuestionSubmitStatusEnum;
+import com.lhx.model.vo.QuestionSubmitVO;
 import com.lhx.questionservice.mapper.QuestionSubmitMapper;
 import com.lhx.questionservice.service.QuestionService;
 import com.lhx.questionservice.service.QuestionSubmitService;
-import com.lhx.serviceclient.service.JudgeService;
-import com.lhx.serviceclient.service.UserService;
+import com.lhx.serviceclient.service.JudgeFeignClient;
+import com.lhx.serviceclient.service.UserFeignClient;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -44,11 +44,11 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
     private QuestionService questionService;
 
     @Resource
-    private UserService userService;
+    private UserFeignClient userService;
 
     @Resource
     @Lazy
-    private JudgeService judgeService;
+    private JudgeFeignClient judgeService;
 
 //    @Resource
 //    private MyMessageProducer myMessageProducer;

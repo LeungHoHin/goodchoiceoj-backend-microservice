@@ -1,11 +1,11 @@
 package com.lhx.judgeservice.judge.strategy;
 
 import cn.hutool.json.JSONUtil;
-import com.lhx.judgeservice.codesandbox.JudgeInfo;
-import com.lhx.judgeservice.dto.question.JudgeCase;
-import com.lhx.judgeservice.dto.question.JudgeConfig;
-import com.lhx.judgeservice.entity.Question;
-import com.lhx.judgeservice.enums.JudgeInfoMessageEnum;
+import com.lhx.model.codesandbox.JudgeInfo;
+import com.lhx.model.dto.question.JudgeCase;
+import com.lhx.model.dto.question.JudgeConfig;
+import com.lhx.model.entity.Question;
+import com.lhx.model.enums.JudgeInfoMessageEnum;
 
 
 import java.util.List;

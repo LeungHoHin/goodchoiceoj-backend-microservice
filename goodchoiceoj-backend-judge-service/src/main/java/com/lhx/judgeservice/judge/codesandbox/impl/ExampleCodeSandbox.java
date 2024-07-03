@@ -2,12 +2,12 @@ package com.lhx.judgeservice.judge.codesandbox.impl;
 
 
 
-import com.lhx.judgeservice.codesandbox.ExecuteCodeRequest;
-import com.lhx.judgeservice.codesandbox.ExecuteCodeResponse;
-import com.lhx.judgeservice.codesandbox.JudgeInfo;
-import com.lhx.judgeservice.enums.JudgeInfoMessageEnum;
-import com.lhx.judgeservice.enums.QuestionSubmitStatusEnum;
 import com.lhx.judgeservice.judge.codesandbox.CodeSandbox;
+import com.lhx.model.codesandbox.ExecuteCodeRequest;
+import com.lhx.model.codesandbox.ExecuteCodeResponse;
+import com.lhx.model.codesandbox.JudgeInfo;
+import com.lhx.model.enums.JudgeInfoMessageEnum;
+import com.lhx.model.enums.QuestionSubmitStatusEnum;
 
 import java.util.List;
 

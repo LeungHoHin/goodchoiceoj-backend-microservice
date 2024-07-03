@@ -1,7 +1,7 @@
 package com.lhx.judgeservice.judge;
 
 
-import com.lhx.judgeservice.entity.QuestionSubmit;
+import com.lhx.model.entity.QuestionSubmit;
 
 /**
  * 判题服务

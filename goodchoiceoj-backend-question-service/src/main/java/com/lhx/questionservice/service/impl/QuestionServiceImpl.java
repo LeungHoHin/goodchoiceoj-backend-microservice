@@ -9,14 +9,14 @@ import com.lhx.common.constant.CommonConstant;
 import com.lhx.common.exception.BusinessException;
 import com.lhx.common.exception.ThrowUtils;
 import com.lhx.common.utils.SqlUtils;
-import com.lhx.judgeservice.dto.question.QuestionQueryRequest;
-import com.lhx.judgeservice.entity.Question;
-import com.lhx.judgeservice.entity.User;
-import com.lhx.judgeservice.vo.QuestionVO;
-import com.lhx.judgeservice.vo.UserVO;
+import com.lhx.model.dto.question.QuestionQueryRequest;
+import com.lhx.model.entity.Question;
+import com.lhx.model.entity.User;
+import com.lhx.model.vo.QuestionVO;
+import com.lhx.model.vo.UserVO;
 import com.lhx.questionservice.mapper.QuestionMapper;
 import com.lhx.questionservice.service.QuestionService;
-import com.lhx.serviceclient.service.UserService;
+import com.lhx.serviceclient.service.UserFeignClient;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -38,7 +38,7 @@ import java.util.stream.Collectors;
 public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question>
         implements QuestionService {
     @Resource
-    private UserService userService;
+    private UserFeignClient userService;
 
 
     @Override

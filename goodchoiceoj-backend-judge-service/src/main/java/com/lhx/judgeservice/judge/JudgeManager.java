@@ -1,8 +1,8 @@
 package com.lhx.judgeservice.judge;
 
 
-import com.lhx.judgeservice.codesandbox.JudgeInfo;
-import com.lhx.judgeservice.entity.QuestionSubmit;
+import com.lhx.model.codesandbox.JudgeInfo;
+import com.lhx.model.entity.QuestionSubmit;
 import com.lhx.judgeservice.judge.strategy.DefaultJudgeStrategy;
 import com.lhx.judgeservice.judge.strategy.JavaLanguageJudgeStrategy;
 import com.lhx.judgeservice.judge.strategy.JudgeContext;

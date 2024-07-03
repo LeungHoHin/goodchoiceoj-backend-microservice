@@ -1,6 +1,6 @@
 package com.lhx.judgeservice.judge.strategy;
 
-import com.lhx.judgeservice.codesandbox.JudgeInfo;
+import com.lhx.model.codesandbox.JudgeInfo;
 
 /**
  * 判题策略

@@ -10,10 +10,10 @@ import com.lhx.common.common.ResultUtils;
 import com.lhx.common.constant.UserConstant;
 import com.lhx.common.exception.BusinessException;
 import com.lhx.common.exception.ThrowUtils;
-import com.lhx.judgeservice.dto.user.*;
-import com.lhx.judgeservice.entity.User;
-import com.lhx.judgeservice.vo.LoginUserVO;
-import com.lhx.judgeservice.vo.UserVO;
+import com.lhx.model.dto.user.*;
+import com.lhx.model.entity.User;
+import com.lhx.model.vo.LoginUserVO;
+import com.lhx.model.vo.UserVO;
 import com.lhx.userservice.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -34,7 +34,7 @@ import static com.lhx.userservice.service.impl.UserServiceImpl.SALT;
  * @author 梁浩轩
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/")
 @Slf4j
 public class UserController {
 

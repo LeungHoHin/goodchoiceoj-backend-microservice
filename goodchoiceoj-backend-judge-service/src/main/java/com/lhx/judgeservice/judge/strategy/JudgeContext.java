@@ -2,10 +2,10 @@ package com.lhx.judgeservice.judge.strategy;
 
 
 
-import com.lhx.judgeservice.codesandbox.JudgeInfo;
-import com.lhx.judgeservice.dto.question.JudgeCase;
-import com.lhx.judgeservice.entity.Question;
-import com.lhx.judgeservice.entity.QuestionSubmit;
+import com.lhx.model.codesandbox.JudgeInfo;
+import com.lhx.model.dto.question.JudgeCase;
+import com.lhx.model.entity.Question;
+import com.lhx.model.entity.QuestionSubmit;
 import lombok.Data;
 
 import java.util.List;

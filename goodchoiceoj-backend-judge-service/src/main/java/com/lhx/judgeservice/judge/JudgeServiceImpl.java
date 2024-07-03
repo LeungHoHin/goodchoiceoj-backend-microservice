@@ -4,21 +4,20 @@ import cn.hutool.json.JSONUtil;
 
 import com.lhx.common.common.ErrorCode;
 import com.lhx.common.exception.BusinessException;
-import com.lhx.judgeservice.codesandbox.ExecuteCodeRequest;
-import com.lhx.judgeservice.codesandbox.ExecuteCodeResponse;
-import com.lhx.judgeservice.codesandbox.JudgeInfo;
-import com.lhx.judgeservice.dto.question.JudgeCase;
-import com.lhx.judgeservice.entity.Question;
-import com.lhx.judgeservice.entity.QuestionSubmit;
-import com.lhx.judgeservice.enums.CodeSandboxRunStatusEnum;
-import com.lhx.judgeservice.enums.JudgeInfoMessageEnum;
-import com.lhx.judgeservice.enums.QuestionSubmitStatusEnum;
 import com.lhx.judgeservice.judge.codesandbox.CodeSandbox;
 import com.lhx.judgeservice.judge.codesandbox.CodeSandboxFactory;
 import com.lhx.judgeservice.judge.codesandbox.CodeSandboxProxy;
+import com.lhx.model.codesandbox.ExecuteCodeRequest;
+import com.lhx.model.codesandbox.ExecuteCodeResponse;
+import com.lhx.model.codesandbox.JudgeInfo;
+import com.lhx.model.dto.question.JudgeCase;
+import com.lhx.model.entity.Question;
+import com.lhx.model.entity.QuestionSubmit;
+import com.lhx.model.enums.CodeSandboxRunStatusEnum;
+import com.lhx.model.enums.JudgeInfoMessageEnum;
+import com.lhx.model.enums.QuestionSubmitStatusEnum;
 import com.lhx.judgeservice.judge.strategy.JudgeContext;
-import com.lhx.serviceclient.service.QuestionService;
-import com.lhx.serviceclient.service.QuestionSubmitService;
+import com.lhx.serviceclient.service.QuestionFeignClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -30,10 +29,8 @@ import java.util.stream.Collectors;
 public class JudgeServiceImpl implements JudgeService {
 
     @Resource
-    private QuestionService questionService;
-
-    @Resource
-    private QuestionSubmitService questionSubmitService;
+    private QuestionFeignClient questionFeignClient;
+    
 
     @Resource
     private JudgeManager judgeManager;
@@ -45,12 +42,12 @@ public class JudgeServiceImpl implements JudgeService {
     @Override
     public QuestionSubmit doJudge(long questionSubmitId) {
         // 1）传入题目的提交 id，获取到对应的题目、提交信息（包含代码、编程语言等）
-        QuestionSubmit questionSubmit = questionSubmitService.getById(questionSubmitId);
+        QuestionSubmit questionSubmit = questionFeignClient.getQuestionSubmitById(questionSubmitId);
         if (questionSubmit == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR, "提交信息不存在");
         }
         Long questionId = questionSubmit.getQuestionId();
-        Question question = questionService.getById(questionId);
+        Question question = questionFeignClient.getQuestionById(questionId);
         if (question == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR, "题目不存在");
         }
@@ -62,7 +59,7 @@ public class JudgeServiceImpl implements JudgeService {
         QuestionSubmit questionSubmitUpdate = new QuestionSubmit();
         questionSubmitUpdate.setId(questionSubmitId);
         questionSubmitUpdate.setStatus(QuestionSubmitStatusEnum.JUDGING.getValue());
-        boolean update = questionSubmitService.updateById(questionSubmitUpdate);
+        boolean update = questionFeignClient.updateQuestionSubmitById(questionSubmitUpdate);
         if (!update) {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "题目状态更新错误");
         }
@@ -101,17 +98,17 @@ public class JudgeServiceImpl implements JudgeService {
         questionSubmitUpdate.setId(questionSubmitId);
         questionSubmitUpdate.setStatus(QuestionSubmitStatusEnum.SUCCEED.getValue());
         questionSubmitUpdate.setJudgeInfo(JSONUtil.toJsonStr(judgeInfo));
-        update = questionSubmitService.updateById(questionSubmitUpdate);
+        update = questionFeignClient.updateQuestionSubmitById(questionSubmitUpdate);
         if (!update) {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "题目状态更新错误");
         }
-        QuestionSubmit questionSubmitResult = questionSubmitService.getById(questionId);
+        QuestionSubmit questionSubmitResult = questionFeignClient.getQuestionSubmitById(questionId);
         // 7）增加题目的提交数和ac数
         question.setSubmitNum(question.getSubmitNum() + 1);
         if (judgeInfo.getMessage().equals(JudgeInfoMessageEnum.ACCEPTED.getValue())) {
             question.setAcceptedNum(question.getAcceptedNum() + 1);
         }
-        questionService.updateById(question);
+        questionFeignClient.updateQuestion(question);
         return questionSubmitResult;
     }
 }

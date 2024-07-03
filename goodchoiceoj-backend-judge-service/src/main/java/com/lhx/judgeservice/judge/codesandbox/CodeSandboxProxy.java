@@ -1,8 +1,8 @@
 package com.lhx.judgeservice.judge.codesandbox;
 
 
-import com.lhx.judgeservice.codesandbox.ExecuteCodeRequest;
-import com.lhx.judgeservice.codesandbox.ExecuteCodeResponse;
+import com.lhx.model.codesandbox.ExecuteCodeRequest;
+import com.lhx.model.codesandbox.ExecuteCodeResponse;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
