@@ -27,7 +27,6 @@ public class InitRabbitMqBean {
     @PostConstruct
     public void init() {
         try {
-            System.out.println("===================================host = " + host);
             ConnectionFactory factory = new ConnectionFactory();
             factory.setHost(host);
             Connection connection = factory.newConnection();
