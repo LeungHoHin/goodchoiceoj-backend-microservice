@@ -17,16 +17,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(value = "goodchoiceoj-backend-question-service")
 public interface QuestionFeignClient {
-    @GetMapping("/inner/get/id")
+    @GetMapping("/question/inner/get/id")
     Question getQuestionById(@RequestParam("questionId") long questionId);
 
-    @GetMapping("/inner/question_submit/get/id")
+    @GetMapping("/question/inner/question_submit/get/id")
     QuestionSubmit getQuestionSubmitById(@RequestParam("questionId") long questionSubmitId);
 
-    @PostMapping("/inner/question_submit/update")
+    @PostMapping("/question/inner/question_submit/update")
     boolean updateQuestionSubmitById(@RequestBody QuestionSubmit questionSubmit);
 
-    @PostMapping("/inner/question/update")
+    @PostMapping("/question/inner/question/update")
     boolean updateQuestion(@RequestBody Question question);
 
 }

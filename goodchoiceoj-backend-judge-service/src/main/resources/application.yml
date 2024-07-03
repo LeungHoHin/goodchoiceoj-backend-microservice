@@ -63,8 +63,9 @@ mybatis-plus:
 ##代码沙箱配置
 codesandbox:
   type: remote
-  #  #代码沙箱地址
+  #代码沙箱地址
   address: http://192.168.126.132:8091/executeCode
+
 
 
 knife4j:

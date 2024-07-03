@@ -48,7 +48,7 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
 
     @Resource
     @Lazy
-    private JudgeFeignClient judgeService;
+    private JudgeFeignClient judgeFeignClient;
 
 //    @Resource
 //    private MyMessageProducer myMessageProducer;
@@ -93,7 +93,7 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
 //        myMessageProducer.sendMessage("code_exchange", "my_routingKey", String.valueOf(questionSubmitId));
         // 执行判题服务
         CompletableFuture.runAsync(() -> {
-            judgeService.doJudge(questionSubmitId);
+            judgeFeignClient.doJudge(questionSubmitId);
         });
         return questionSubmitId;
     }
