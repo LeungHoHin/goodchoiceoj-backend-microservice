@@ -14,7 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
 @ComponentScan("com.lhx")
 @EnableDiscoveryClient
-@EnableFeignClients
+@EnableFeignClients(basePackages = {"com.lhx.serviceclient.service"})
 public class JudgeServiceMain8104 {
     public static void main(String[] args) {
         SpringApplication.run(JudgeServiceMain8104.class, args);
