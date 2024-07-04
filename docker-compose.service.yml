@@ -1,0 +1,54 @@
+version: '3'
+services:
+  goodchoice-backend-gateway:
+    container_name: goodchoice-backend-gateway
+    build:
+      context: ./goodchoiceoj-backend-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8002:8002"
+    networks:
+      - mynetwork
+
+  goodchoice-backend-user-service:
+    container_name: goodchoice-backend-user-service
+    build:
+      context: ./goodchoiceoj-backend-user-service
+      dockerfile: Dockerfile
+    ports:
+      - "8003:8003"
+    networks:
+      - mynetwork
+    depends_on:
+      - goodchoice-backend-gateway
+
+  goodchoiceoj-backend-question-service:
+    container_name: goodchoiceoj-backend-question-service
+    build:
+      context: ./goodchoiceoj-backend-question-service
+      dockerfile: Dockerfile
+    ports:
+      - "9003:9003"
+    networks:
+      - mynetwork
+    depends_on:
+      - goodchoice-backend-user-service
+      - goodchoice-backend-gateway
+
+  goodchoiceoj-backend-judge-service:
+    container_name: goodchoiceoj-backend-judge-service
+    build:
+      context: ./goodchoiceoj-backend-judge-service
+      dockerfile: Dockerfile
+    ports:
+      - "9002:9002"
+    networks:
+      - mynetwork
+    depends_on:
+      - goodchoice-backend-user-service
+      - goodchoiceoj-backend-question-service
+      - goodchoice-backend-gateway
+
+# 网络，不定义的话就是默认网络
+networks:
+  mynetwork:

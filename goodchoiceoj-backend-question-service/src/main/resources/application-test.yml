@@ -1,7 +1,12 @@
 # 公共配置文件
 spring:
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    password: guest
+    username: guest
   application:
-    name: goodchoiceoj-backend-user-service
+    name: goodchoiceoj-backend-question-service
 
   # 支持 swagger3
   mvc:
@@ -15,33 +20,28 @@ spring:
   # 数据库配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/goodchoiceoj_user
+    url: jdbc:mysql://114.116.197.73:35623/goodchoiceoj_question
     username: root
-    password: root
+    password: Rd@s2135f
   # Redis 配置
   redis:
     database: 1
-    host: localhost
+    host: 114.116.213.137
     port: 6379
     timeout: 5000
-  #    lettuce:
-  #      pool:
-  #        max-active: 8
-  #        max-idle: 8
-  #        min-idle: 0
-  #    password: Lhx20021030!
+    password: 123456
   servlet:
     multipart:
       max-file-size: 10MB
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: nacos:8848
 server:
   address: 0.0.0.0
-  port: 8102
+  port: 9003
   servlet:
-    context-path: /user
+    context-path: /question
     # cookie 30 天过期
     session:
       cookie:
@@ -55,6 +55,7 @@ mybatis-plus:
       logic-delete-field: isDelete
       logic-delete-value: 1
       logic-not-delete-value: 0
+
 
 knife4j:
   enable: true

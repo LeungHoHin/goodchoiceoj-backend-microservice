@@ -14,7 +14,6 @@
         <module>goodchoiceoj-backend-judge-service</module>
         <module>goodchoiceoj-backend-service-client</module>
         <module>goodchoiceoj-backend-model</module>
-        <module>goodchoiceoj-backend-judge-service</module>
         <module>goodchoiceoj-backend-user-service</module>
         <module>goodchoiceoj-backend-question-service</module>
 

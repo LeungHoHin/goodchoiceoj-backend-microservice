@@ -1,0 +1,41 @@
+# 公共配置文件
+spring:
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    password: guest
+    username: guest
+  application:
+    name: goodchoiceoj-backend-judge-service
+  #默认 dev 环境
+  profiles:
+    active: dev
+
+  # 支持 swagger3
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos:8848
+server:
+  address: 0.0.0.0
+  port: 8003
+  servlet:
+    context-path: /judge
+
+##代码沙箱配置
+codesandbox:
+  type: remote
+  #代码沙箱地址
+  address: http://114.116.213.137:8002/executeCode
+
+
+
+knife4j:
+  enable: true
+
+
+
+
